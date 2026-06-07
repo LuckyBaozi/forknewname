@@ -173,15 +173,57 @@ Page({
       return;
     }
 
-    // Cache miss — store form data and navigate to ad page
-    app.globalData.pendingForm = {
-      ...formData,
-      formHash
-    };
+    // Cache miss — call API directly (ad page currently disabled)
+    this.directGenerate(formData, formHash);
+  },
 
-    wx.navigateTo({
-      url: '/pages/ad/ad'
-    });
+  // Direct API call without ad (ad page can be re-enabled later)
+  async directGenerate(formData, formHash) {
+    wx.showLoading({ title: '正在起名...' });
+
+    try {
+      const res = await api.generateName(formData);
+      wx.hideLoading();
+
+      if (res.code === 0) {
+        cache.setResult(formHash, formData, res.data.names);
+        api.logStat('result_view', formHash).catch(() => {});
+
+        wx.navigateTo({
+          url: `/pages/result/result?formHash=${formHash}`
+        });
+      } else if (res.code === 2) {
+        wx.showModal({
+          title: '提示',
+          content: res.message || '暂无合适名字，请调整风格/生肖后重试',
+          showCancel: false
+        });
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: res.message || '请求失败，请稍后重试',
+          showCancel: true,
+          confirmText: '重试',
+          cancelText: '取消',
+          success: (modalRes) => {
+            if (modalRes.confirm) this.directGenerate(formData, formHash);
+          }
+        });
+      }
+    } catch (err) {
+      wx.hideLoading();
+      console.error('[Form] generateNames error:', err);
+      wx.showModal({
+        title: '网络异常',
+        content: '网络异常，请检查网络后重试',
+        showCancel: true,
+        confirmText: '重试',
+        cancelText: '取消',
+        success: (modalRes) => {
+          if (modalRes.confirm) this.directGenerate(formData, formHash);
+        }
+      });
+    }
   },
 
   // --- Reset ---

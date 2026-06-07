@@ -40,8 +40,9 @@ Page({
   },
 
   onHome() {
-    wx.navigateBack({
-      delta: 3 // back through ad, form, to index
+    // Relaunch to index, clear page stack
+    wx.reLaunch({
+      url: '/pages/index/index'
     });
   },
 
