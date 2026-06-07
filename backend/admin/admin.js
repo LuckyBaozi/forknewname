@@ -291,6 +291,6 @@ function esc(str) {
 }
 
 function genderLabel(g) {
-  const map = { boy: '男孩', girl: '女孩', neutral: '中性' };
+  const map = { boy: '男孩', girl: '女孩' };
   return map[g] || g;
 }

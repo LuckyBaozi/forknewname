@@ -21,7 +21,7 @@ function validateSurname(value) {
  * 校验性别
  */
 function validateGender(value) {
-  if (!value || !['boy', 'girl', 'neutral'].includes(value)) {
+  if (!value || !['boy', 'girl'].includes(value)) {
     return { valid: false, message: '请选择性别' };
   }
   return { valid: true, message: '' };

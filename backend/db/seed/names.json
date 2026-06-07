@@ -61,7 +61,7 @@
   },
   {
     "given_name": "嘉懿",
-    "gender": "neutral",
+    "gender": "boy",
     "name_length": 2,
     "styles": ["文雅", "大气"],
     "zodiac_suits": ["龙", "蛇", "马", "羊", "猴", "鸡"],
@@ -85,7 +85,7 @@
   },
   {
     "given_name": "羽凡",
-    "gender": "neutral",
+    "gender": "boy",
     "name_length": 2,
     "styles": ["大气", "古风"],
     "zodiac_suits": ["鸡", "蛇", "牛"],

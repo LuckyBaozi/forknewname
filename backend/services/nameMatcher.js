@@ -68,7 +68,7 @@ function hasBlacklistedChar(givenName, blacklistChars) {
  *
  * @param {object} db - sql.js Database instance
  * @param {object} params
- * @param {string} params.gender - 'boy' | 'girl' | 'neutral'
+ * @param {string} params.gender - 'boy' | 'girl'
  * @param {string} params.zodiac - e.g. '龙'
  * @param {number} params.nameLength - 2 or 3
  * @param {string[]} params.styles - e.g. ['文雅', '大气']
@@ -79,14 +79,8 @@ function hasBlacklistedChar(givenName, blacklistChars) {
 function match(db, params, resultCount = 8) {
   const { gender, zodiac, nameLength, styles, region } = params;
 
-  // Phase 1 — FETCH candidates (use OR instead of IN for broader SQL compatibility)
-  let genderSQL;
-  if (gender === 'neutral') {
-    genderSQL = "gender = 'neutral'";
-  } else {
-    genderSQL = `(gender = '${gender}' OR gender = 'neutral')`;
-  }
-
+  // Phase 1 — FETCH candidates
+  const genderSQL = `gender = '${gender}'`;
   const sql = `
     SELECT * FROM names
     WHERE is_active = 1

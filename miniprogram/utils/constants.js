@@ -8,8 +8,7 @@ const ZODIACS = ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', 
 // 性别选项
 const GENDERS = [
   { value: 'boy', label: '男孩' },
-  { value: 'girl', label: '女孩' },
-  { value: 'neutral', label: '中性' }
+  { value: 'girl', label: '女孩' }
 ];
 
 // 名字字数

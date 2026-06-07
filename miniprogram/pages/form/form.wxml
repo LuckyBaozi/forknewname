@@ -33,24 +33,7 @@
     <text class="error-text" wx:if="{{errors.gender}}">{{errors.gender}}</text>
   </view>
 
-  <!-- 3. Zodiac -->
-  <view class="form-group">
-    <text class="form-label">生肖 <text class="required">*</text></text>
-    <picker
-      mode="selector"
-      range="{{zodiacs}}"
-      value="{{zodiacIndex}}"
-      bindchange="onZodiacChange"
-    >
-      <view class="picker-view {{errors.zodiac ? 'input-error' : ''}}">
-        <text class="{{zodiac ? '' : 'placeholder'}}">{{zodiac || '请选择生肖'}}</text>
-        <text class="picker-arrow">▼</text>
-      </view>
-    </picker>
-    <text class="error-text" wx:if="{{errors.zodiac}}">{{errors.zodiac}}</text>
-  </view>
-
-  <!-- 4. Birth Date -->
+  <!-- 3. Birth Date -->
   <view class="form-group">
     <text class="form-label">出生年月日 <text class="required">*</text></text>
     <picker
@@ -65,6 +48,23 @@
       </view>
     </picker>
     <text class="error-text" wx:if="{{errors.birthDate}}">{{errors.birthDate}}</text>
+  </view>
+
+  <!-- 4. Zodiac -->
+  <view class="form-group">
+    <text class="form-label">生肖 <text class="required">*</text></text>
+    <picker
+      mode="selector"
+      range="{{zodiacs}}"
+      value="{{zodiacIndex}}"
+      bindchange="onZodiacChange"
+    >
+      <view class="picker-view {{errors.zodiac ? 'input-error' : ''}}">
+        <text class="{{zodiac ? '' : 'placeholder'}}">{{zodiac || '请选择生肖'}}</text>
+        <text class="picker-arrow">▼</text>
+      </view>
+    </picker>
+    <text class="error-text" wx:if="{{errors.zodiac}}">{{errors.zodiac}}</text>
   </view>
 
   <!-- 5. Birth Time -->

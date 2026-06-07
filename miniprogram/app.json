@@ -8,10 +8,10 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#faf6f0",
     "navigationBarTitleText": "起名神器",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#f5f5f5"
+    "backgroundColor": "#f5f0e8"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

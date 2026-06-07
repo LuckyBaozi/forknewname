@@ -5,7 +5,7 @@
 CREATE TABLE IF NOT EXISTS names (
   id              INTEGER PRIMARY KEY AUTOINCREMENT,
   given_name      TEXT    NOT NULL,
-  gender          TEXT    NOT NULL CHECK(gender IN ('boy','girl','neutral')),
+  gender          TEXT    NOT NULL CHECK(gender IN ('boy','girl')),
   name_length     INTEGER NOT NULL CHECK(name_length IN (2, 3)),
   styles          TEXT    NOT NULL DEFAULT '[]',
   zodiac_suits    TEXT    NOT NULL DEFAULT '[]',

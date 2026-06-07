@@ -28,7 +28,7 @@ router.post('/generateName', async (req, res) => {
     if (!surname || !/^[一-鿿]{1,2}$/.test(surname)) {
       errors.push({ field: 'surname', message: '姓氏限1-2个汉字' });
     }
-    if (!['boy', 'girl', 'neutral'].includes(gender)) {
+    if (!['boy', 'girl'].includes(gender)) {
       errors.push({ field: 'gender', message: '请选择性别' });
     }
     if (!nameMatcher.ALL_ZODIACS.includes(zodiac)) {
