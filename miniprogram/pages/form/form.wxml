@@ -85,22 +85,7 @@
     <text class="error-text" wx:if="{{errors.birthTime}}">{{errors.birthTime}}</text>
   </view>
 
-  <!-- 6. Region (optional) -->
-  <view class="form-group">
-    <text class="form-label">地域 <text class="optional">选填</text></text>
-    <picker
-      mode="region"
-      value="{{region}}"
-      bindchange="onRegionChange"
-    >
-      <view class="picker-view">
-        <text class="{{region && region.length ? '' : 'placeholder'}}">{{regionStr || '省-市-区（可不填）'}}</text>
-        <text class="picker-arrow">📍</text>
-      </view>
-    </picker>
-  </view>
-
-  <!-- 7. Name Length -->
+  <!-- 6. Name Length -->
   <view class="form-group">
     <text class="form-label">名字字数 <text class="required">*</text></text>
     <view class="radio-group">

@@ -15,8 +15,6 @@ Page({
     birthDate: '',
     birthTime: '',
     birthTimeIndex: -1,
-    region: [],
-    regionStr: '',
     nameLength: '',
     styles: [],
 
@@ -88,14 +86,6 @@ Page({
       birthTime: item.value === 'unknown' ? item.label : item.value
     });
     this.validateField('birthTime');
-  },
-
-  onRegionChange(e) {
-    const region = e.detail.value;
-    this.setData({
-      region: region,
-      regionStr: region.join('-')
-    });
   },
 
   onNameLengthChange(e) {
@@ -236,8 +226,6 @@ Page({
       birthDate: '',
       birthTime: '',
       birthTimeIndex: -1,
-      region: [],
-      regionStr: '',
       nameLength: '',
       styles: [],
       errors: {},
@@ -254,7 +242,6 @@ Page({
       zodiac: this.data.zodiac,
       birthDate: this.data.birthDate,
       birthTime: this.data.birthTime,
-      region: this.data.regionStr || '',
       nameLength: this.data.nameLength,
       styles: this.data.styles
     };
@@ -274,8 +261,6 @@ Page({
       birthDate: data.birthDate || '',
       birthTime: data.birthTime || '',
       birthTimeIndex: birthTimeIndex >= 0 ? birthTimeIndex : -1,
-      region: data.region ? data.region.split('-') : [],
-      regionStr: data.region || '',
       nameLength: data.nameLength || '',
       styles: data.styles || []
     });
