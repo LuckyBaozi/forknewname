@@ -1,3 +1,11 @@
+/* 姓氏输入框 — 防止 maxlength=2 导致窄缩 */
+.surname-input {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
 .form-intro {
   background: linear-gradient(135deg, rgba(201, 169, 110, 0.12), rgba(179, 69, 58, 0.08));
   padding: 20rpx 24rpx;

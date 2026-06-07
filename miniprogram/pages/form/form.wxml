@@ -7,7 +7,7 @@
   <view class="form-group">
     <text class="form-label">姓氏 <text class="required">*</text></text>
     <input
-      class="form-input {{errors.surname ? 'input-error' : ''}}"
+      class="form-input surname-input {{errors.surname ? 'input-error' : ''}}"
       placeholder="请输入姓氏（1-2个汉字）"
       value="{{surname}}"
       bindinput="onSurnameChange"
