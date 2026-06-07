@@ -1,0 +1,40 @@
+<view class="name-card">
+  <!-- Name & Pronunciation -->
+  <view class="name-header">
+    <text class="full-name">{{name.fullName}}</text>
+    <text class="pronunciation">{{name.pronunciation}}</text>
+  </view>
+
+  <!-- Style Tags -->
+  <view class="tag-row" wx:if="{{name.styleTags && name.styleTags.length}}">
+    <text class="tag" wx:for="{{name.styleTags}}" wx:key="*this">{{item}}</text>
+  </view>
+
+  <!-- Character Meaning -->
+  <view class="section" wx:if="{{name.charMeaning}}">
+    <text class="section-label">📖 单字释义</text>
+    <text class="section-text">{{name.charMeaning}}</text>
+  </view>
+
+  <!-- Overall Meaning -->
+  <view class="section" wx:if="{{name.overallMeaning}}">
+    <text class="section-label">💡 整体寓意</text>
+    <text class="section-text">{{name.overallMeaning}}</text>
+  </view>
+
+  <!-- Zodiac Note -->
+  <view class="section" wx:if="{{name.zodiacNote}}">
+    <text class="section-label">🐲 生肖适配</text>
+    <text class="section-text">{{name.zodiacNote}}</text>
+  </view>
+
+  <!-- Action Bar -->
+  <view class="action-bar" wx:if="{{showActions}}">
+    <view class="action-btn {{isFav ? 'favorited' : ''}}" bindtap="onFavorite">
+      <text>{{isFav ? '⭐ 已收藏' : '☆ 收藏'}}</text>
+    </view>
+    <view class="action-btn" wx:if="{{showDelete}}" bindtap="onRemove">
+      <text>🗑 删除</text>
+    </view>
+  </view>
+</view>

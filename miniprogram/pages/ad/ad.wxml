@@ -1,0 +1,29 @@
+<view class="container ad-page">
+  <!-- Loading state -->
+  <view class="ad-status" wx:if="{{adStatus === 'loading'}}">
+    <view class="spinner"></view>
+    <text class="status-text">广告加载中...</text>
+    <text class="status-hint">请耐心等待，广告加载完成后自动播放</text>
+  </view>
+
+  <!-- Ad container hint -->
+  <view class="ad-hint" wx:if="{{adStatus === 'playing'}}">
+    <view class="ad-icon">🎬</view>
+    <text class="ad-title">正在播放广告</text>
+    <text class="ad-subtitle">请完整观看广告后解锁起名结果</text>
+    <text class="ad-warning">中途关闭将无法获取结果</text>
+  </view>
+
+  <!-- Error state -->
+  <view class="ad-status" wx:if="{{adStatus === 'error'}}">
+    <text class="error-icon">😞</text>
+    <text class="status-text error">广告加载失败</text>
+    <text class="status-hint">{{errorMsg}}</text>
+    <button class="btn-primary retry-btn" bindtap="onRetry">重新加载</button>
+  </view>
+
+  <!-- Back button -->
+  <view class="back-link" bindtap="onBack">
+    <text>← 返回修改信息</text>
+  </view>
+</view>

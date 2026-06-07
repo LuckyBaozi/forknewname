@@ -1,0 +1,52 @@
+<view class="container">
+  <!-- Header Actions -->
+  <view class="result-header">
+    <button class="btn-outline" bindtap="onRestart">🔄 重新起名</button>
+    <button class="btn-outline" bindtap="onHome">🏠 返回首页</button>
+  </view>
+
+  <!-- Cache indicator -->
+  <view class="cache-indicator" wx:if="{{fromCache}}">
+    <text>📋 此结果已缓存，无需重复观看广告</text>
+  </view>
+
+  <!-- Loading -->
+  <view class="loading" wx:if="{{loading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- No results -->
+  <view class="empty-state" wx:if="{{!loading && names.length === 0}}">
+    <text class="icon">😞</text>
+    <text>暂无合适名字，请调整风格/生肖后重试</text>
+    <button class="btn-primary" style="margin-top:32rpx;width:60%;" bindtap="onRestart">返回修改</button>
+  </view>
+
+  <!-- Name Cards -->
+  <view wx:if="{{!loading && names.length > 0}}">
+    <view class="result-count">
+      <text>为您匹配到 <text class="highlight">{{names.length}}</text> 个名字</text>
+    </view>
+
+    <name-card
+      wx:for="{{names}}"
+      wx:key="fullName"
+      name="{{item}}"
+      showActions="{{true}}"
+      showDelete="{{false}}"
+      bind:remove="onRemoveFavorite"
+    />
+
+    <!-- Share Button -->
+    <view class="share-section">
+      <button class="btn-primary share-btn" open-type="share">
+        📤 分享给好友
+      </button>
+    </view>
+  </view>
+
+  <!-- Bottom disclaimer -->
+  <view class="disclaimer">
+    <text>⚠️ 起名结果仅供娱乐参考</text>
+  </view>
+</view>

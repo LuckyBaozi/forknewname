@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>起名小程序 - 后台管理</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- Auth overlay -->
+<div id="auth-overlay">
+  <div class="auth-box">
+    <h1>🔐 管理员验证</h1>
+    <input type="password" id="key-input" placeholder="请输入管理密钥" autofocus>
+    <button id="key-submit">验证</button>
+    <p id="key-error" class="error-msg"></p>
+  </div>
+</div>
+
+<!-- Main admin panel (hidden until auth) -->
+<div id="app" style="display:none">
+  <header>
+    <h1>🎯 起名小程序管理</h1>
+    <span class="version">v1.0</span>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="names">名字库管理</button>
+    <button class="tab" data-tab="blacklist">黑名单</button>
+    <button class="tab" data-tab="config">系统配置</button>
+    <button class="tab" data-tab="stats">数据统计</button>
+  </nav>
+
+  <!-- ======== NAMES TAB ======== -->
+  <section id="tab-names" class="tab-content active">
+    <div class="toolbar">
+      <button class="btn-primary" id="btn-add-name">+ 添加名字</button>
+      <input type="text" id="name-search" placeholder="搜索名字/拼音...">
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>名字</th><th>性别</th><th>字数</th><th>风格</th><th>生肖宜用</th><th>拼音</th><th>状态</th><th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="names-tbody"></tbody>
+      </table>
+    </div>
+    <div class="pagination" id="names-pager"></div>
+
+    <!-- Edit/add modal -->
+    <div id="name-modal" class="modal" style="display:none">
+      <div class="modal-content">
+        <h3 id="name-modal-title">添加名字</h3>
+        <div class="form-grid">
+          <label>名字（不含姓）<input id="nm-given_name"></label>
+          <label>性别 <select id="nm-gender"><option value="boy">男孩</option><option value="girl">女孩</option><option value="neutral">中性</option></select></label>
+          <label>字数 <select id="nm-name_length"><option value="2">两字名</option><option value="3">三字名</option></select></label>
+          <label>风格标签 <input id="nm-styles" placeholder="逗号分隔, 如: 文雅,大气"></label>
+          <label>生肖宜用 <input id="nm-zodiac_suits" placeholder="逗号分隔, 如: 龙,蛇,马"></label>
+          <label>生肖忌用 <input id="nm-zodiac_avoids" placeholder="逗号分隔, 如: 鼠"></label>
+          <label>拼音 <input id="nm-pronunciation" placeholder="如: ruò yún"></label>
+          <label>单字释义 <textarea id="nm-char_meaning" rows="2"></textarea></label>
+          <label>整体寓意 <textarea id="nm-overall_meaning" rows="2"></textarea></label>
+          <label>地域标签 <input id="nm-region_tags" placeholder="逗号分隔, 默认: 全国通用" value="全国通用"></label>
+          <label>启用 <input type="checkbox" id="nm-is_active" checked></label>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-primary" id="btn-save-name">保存</button>
+          <button class="btn-cancel" id="btn-cancel-name">取消</button>
+        </div>
+        <input type="hidden" id="nm-id">
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== BLACKLIST TAB ======== -->
+  <section id="tab-blacklist" class="tab-content">
+    <div class="toolbar">
+      <div class="inline-form">
+        <input type="text" id="bl-char" placeholder="输入单个汉字" maxlength="1">
+        <input type="text" id="bl-reason" placeholder="拉黑原因（选填）">
+        <button class="btn-primary" id="btn-add-bl">添加到黑名单</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>汉字</th><th>原因</th><th>添加时间</th><th>操作</th></tr></thead>
+        <tbody id="blacklist-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ======== CONFIG TAB ======== -->
+  <section id="tab-config" class="tab-content">
+    <div class="config-grid">
+      <label>广告位 ID <input id="cfg-adUnitId" placeholder="adunit-xxx"></label>
+      <label>返回名字数量 <input type="number" id="cfg-resultCount" min="1" max="20"></label>
+      <label>风格标签列表 <input id="cfg-styleTags" placeholder="逗号分隔"></label>
+      <label>启用广告 <input type="checkbox" id="cfg-enableAds"></label>
+    </div>
+    <button class="btn-primary" id="btn-save-config">保存配置</button>
+    <p id="cfg-msg"></p>
+  </section>
+
+  <!-- ======== STATS TAB ======== -->
+  <section id="tab-stats" class="tab-content">
+    <div class="stat-cards" id="stat-cards">
+      <div class="stat-card"><span class="stat-num">-</span><span class="stat-label">页面访问</span></div>
+      <div class="stat-card"><span class="stat-num">-</span><span class="stat-label">表单提交</span></div>
+      <div class="stat-card"><span class="stat-num">-</span><span class="stat-label">广告完播</span></div>
+      <div class="stat-card"><span class="stat-num">-</span><span class="stat-label">结果查看</span></div>
+    </div>
+    <p class="stat-total">累计事件总数: <strong id="stat-total">-</strong></p>
+    <button class="btn-primary" id="btn-refresh-stats">刷新统计</button>
+  </section>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

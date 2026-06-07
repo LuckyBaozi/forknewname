@@ -1,0 +1,149 @@
+<view class="container">
+  <view class="form-intro">
+    <text class="form-intro-text">请填写以下信息，为您匹配最适合的名字</text>
+  </view>
+
+  <!-- 1. Surname -->
+  <view class="form-group">
+    <text class="form-label">姓氏 <text class="required">*</text></text>
+    <input
+      class="form-input {{errors.surname ? 'input-error' : ''}}"
+      placeholder="请输入姓氏（1-2个汉字）"
+      value="{{surname}}"
+      bindinput="onSurnameChange"
+      maxlength="2"
+    />
+    <text class="error-text" wx:if="{{errors.surname}}">{{errors.surname}}</text>
+  </view>
+
+  <!-- 2. Gender -->
+  <view class="form-group">
+    <text class="form-label">性别 <text class="required">*</text></text>
+    <view class="radio-group">
+      <view
+        class="radio-item {{gender === item.value ? 'active' : ''}}"
+        wx:for="{{genders}}"
+        wx:key="value"
+        data-value="{{item.value}}"
+        bindtap="onGenderChange"
+      >
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+    <text class="error-text" wx:if="{{errors.gender}}">{{errors.gender}}</text>
+  </view>
+
+  <!-- 3. Zodiac -->
+  <view class="form-group">
+    <text class="form-label">生肖 <text class="required">*</text></text>
+    <picker
+      mode="selector"
+      range="{{zodiacs}}"
+      value="{{zodiacIndex}}"
+      bindchange="onZodiacChange"
+    >
+      <view class="picker-view {{errors.zodiac ? 'input-error' : ''}}">
+        <text class="{{zodiac ? '' : 'placeholder'}}">{{zodiac || '请选择生肖'}}</text>
+        <text class="picker-arrow">▼</text>
+      </view>
+    </picker>
+    <text class="error-text" wx:if="{{errors.zodiac}}">{{errors.zodiac}}</text>
+  </view>
+
+  <!-- 4. Birth Date -->
+  <view class="form-group">
+    <text class="form-label">出生年月日 <text class="required">*</text></text>
+    <picker
+      mode="date"
+      value="{{birthDate}}"
+      end="{{today}}"
+      bindchange="onBirthDateChange"
+    >
+      <view class="picker-view {{errors.birthDate ? 'input-error' : ''}}">
+        <text class="{{birthDate ? '' : 'placeholder'}}">{{birthDate || '请选择出生日期'}}</text>
+        <text class="picker-arrow">📅</text>
+      </view>
+    </picker>
+    <text class="error-text" wx:if="{{errors.birthDate}}">{{errors.birthDate}}</text>
+  </view>
+
+  <!-- 5. Birth Time -->
+  <view class="form-group">
+    <text class="form-label">出生时间 <text class="required">*</text></text>
+    <picker
+      mode="selector"
+      range="{{birthHours}}"
+      range-key="label"
+      value="{{birthTimeIndex}}"
+      bindchange="onBirthTimeChange"
+    >
+      <view class="picker-view {{errors.birthTime ? 'input-error' : ''}}">
+        <text class="{{birthTime ? '' : 'placeholder'}}">{{birthTime || '请选择出生时间'}}</text>
+        <text class="picker-arrow">▼</text>
+      </view>
+    </picker>
+    <text class="error-text" wx:if="{{errors.birthTime}}">{{errors.birthTime}}</text>
+  </view>
+
+  <!-- 6. Region (optional) -->
+  <view class="form-group">
+    <text class="form-label">地域 <text class="optional">选填</text></text>
+    <picker
+      mode="region"
+      value="{{region}}"
+      bindchange="onRegionChange"
+    >
+      <view class="picker-view">
+        <text class="{{region && region.length ? '' : 'placeholder'}}">{{regionStr || '省-市-区（可不填）'}}</text>
+        <text class="picker-arrow">📍</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 7. Name Length -->
+  <view class="form-group">
+    <text class="form-label">名字字数 <text class="required">*</text></text>
+    <view class="radio-group">
+      <view
+        class="radio-item {{nameLength === item.value ? 'active' : ''}}"
+        wx:for="{{nameLengths}}"
+        wx:key="value"
+        data-value="{{item.value}}"
+        bindtap="onNameLengthChange"
+      >
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+    <text class="error-text" wx:if="{{errors.nameLength}}">{{errors.nameLength}}</text>
+  </view>
+
+  <!-- 8. Styles -->
+  <view class="form-group">
+    <text class="form-label">名字风格 <text class="required">*</text></text>
+    <view class="tag-group">
+      <text
+        class="tag {{styles.indexOf(item) > -1 ? 'selected' : ''}}"
+        wx:for="{{styleTags}}"
+        wx:key="*this"
+        data-tag="{{item}}"
+        bindtap="onStyleToggle"
+      >{{item}}</text>
+    </view>
+    <text class="error-text" wx:if="{{errors.styles}}">{{errors.styles}}</text>
+  </view>
+
+  <!-- Actions -->
+  <view class="form-actions">
+    <button class="btn-primary" disabled="{{!isFormValid}}" bindtap="onSubmit">
+      提交起名
+    </button>
+    <button class="btn-reset" bindtap="onReset">
+      重置
+    </button>
+  </view>
+
+  <!-- Disclaimer -->
+  <view class="disclaimer">
+    <text>⚠️ 起名结果仅供娱乐参考</text>
+  </view>
+</view>

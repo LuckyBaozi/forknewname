@@ -1,0 +1,122 @@
+[
+  {
+    "given_name": "若昀",
+    "gender": "boy",
+    "name_length": 2,
+    "styles": ["文雅", "大气"],
+    "zodiac_suits": ["龙", "蛇", "马"],
+    "zodiac_avoids": [],
+    "pronunciation": "ruò yún",
+    "char_meaning": "若：如，似；昀：日光",
+    "overall_meaning": "如晨光般温暖明亮，寓意前程似锦，光耀门楣",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "子轩",
+    "gender": "boy",
+    "name_length": 2,
+    "styles": ["文雅", "顺口"],
+    "zodiac_suits": ["鼠", "牛", "虎"],
+    "zodiac_avoids": [],
+    "pronunciation": "zǐ xuān",
+    "char_meaning": "子：君子，才子；轩：高远，气宇轩昂",
+    "overall_meaning": "寓意德才兼备，气度不凡，前程高远",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "浩然",
+    "gender": "boy",
+    "name_length": 2,
+    "styles": ["大气", "顺口"],
+    "zodiac_suits": ["龙", "马", "猴"],
+    "zodiac_avoids": ["鼠"],
+    "pronunciation": "hào rán",
+    "char_meaning": "浩：广大，浩荡；然：自然，天然",
+    "overall_meaning": "胸怀广阔，正气凛然，光明磊落",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "语嫣",
+    "gender": "girl",
+    "name_length": 2,
+    "styles": ["温婉", "文雅"],
+    "zodiac_suits": ["兔", "羊", "猪"],
+    "zodiac_avoids": [],
+    "pronunciation": "yǔ yān",
+    "char_meaning": "语：言语，妙语；嫣：美好，嫣然",
+    "overall_meaning": "语笑嫣然，聪慧美好，温婉动人",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "思琪",
+    "gender": "girl",
+    "name_length": 2,
+    "styles": ["温婉", "古风"],
+    "zodiac_suits": ["蛇", "鸡", "牛"],
+    "zodiac_avoids": [],
+    "pronunciation": "sī qí",
+    "char_meaning": "思：文思，才思；琪：美玉",
+    "overall_meaning": "文思如泉涌，如玉般美好珍贵",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "嘉懿",
+    "gender": "neutral",
+    "name_length": 2,
+    "styles": ["文雅", "大气"],
+    "zodiac_suits": ["龙", "蛇", "马", "羊", "猴", "鸡"],
+    "zodiac_avoids": [],
+    "pronunciation": "jiā yì",
+    "char_meaning": "嘉：美好，赞许；懿：美德",
+    "overall_meaning": "嘉言懿行，品德高尚，受人赞颂",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "润泽",
+    "gender": "boy",
+    "name_length": 2,
+    "styles": ["顺口", "文雅"],
+    "zodiac_suits": ["龙", "鼠", "猴"],
+    "zodiac_avoids": ["马"],
+    "pronunciation": "rùn zé",
+    "char_meaning": "润：滋润，温润；泽：恩泽，光泽",
+    "overall_meaning": "温润如玉，福泽深厚，恩泽广布",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "羽凡",
+    "gender": "neutral",
+    "name_length": 2,
+    "styles": ["大气", "古风"],
+    "zodiac_suits": ["鸡", "蛇", "牛"],
+    "zodiac_avoids": [],
+    "pronunciation": "yǔ fán",
+    "char_meaning": "羽：羽毛，飞翔；凡：非凡，出众",
+    "overall_meaning": "羽翼渐丰，超凡脱俗，一飞冲天",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "梦洁",
+    "gender": "girl",
+    "name_length": 2,
+    "styles": ["温婉", "顺口"],
+    "zodiac_suits": ["兔", "羊", "猪"],
+    "zodiac_avoids": ["虎"],
+    "pronunciation": "mèng jié",
+    "char_meaning": "梦：梦想，美好；洁：纯洁，高洁",
+    "overall_meaning": "心怀梦想，冰清玉洁，纯真美好",
+    "region_tags": ["全国通用"]
+  },
+  {
+    "given_name": "逸辰",
+    "gender": "boy",
+    "name_length": 2,
+    "styles": ["大气", "古风"],
+    "zodiac_suits": ["龙", "马", "猴"],
+    "zodiac_avoids": [],
+    "pronunciation": "yì chén",
+    "char_meaning": "逸：超逸，安逸；辰：星辰，时光",
+    "overall_meaning": "飘逸出尘，如星辰般闪耀，气度不凡",
+    "region_tags": ["全国通用"]
+  }
+]

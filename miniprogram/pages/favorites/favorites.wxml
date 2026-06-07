@@ -1,0 +1,26 @@
+<view class="container">
+  <!-- Empty state -->
+  <view class="empty-state" wx:if="{{favorites.length === 0}}">
+    <text class="icon">⭐</text>
+    <text>暂无收藏</text>
+    <text class="empty-hint">在起名结果页点击收藏即可保存</text>
+    <button class="btn-primary" style="margin-top:40rpx;width:60%;" bindtap="onGoHome">去起名</button>
+  </view>
+
+  <!-- Favorites list -->
+  <view wx:if="{{favorites.length > 0}}">
+    <view class="fav-header">
+      <text>共 {{favorites.length}} 个收藏</text>
+      <text class="clear-all" bindtap="onClearAll">清空全部</text>
+    </view>
+
+    <name-card
+      wx:for="{{favorites}}"
+      wx:key="fullName"
+      name="{{item}}"
+      showActions="{{true}}"
+      showDelete="{{true}}"
+      bind:remove="onRemoveItem"
+    />
+  </view>
+</view>

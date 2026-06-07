@@ -1,0 +1,154 @@
+/* ============================================================
+   全局样式
+   ============================================================ */
+
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', sans-serif;
+  font-size: 28rpx;
+  color: #333;
+  background: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  padding: 32rpx;
+  min-height: 100vh;
+}
+
+/* Text */
+.title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+.subtitle {
+  font-size: 28rpx;
+  color: #888;
+}
+.disclaimer {
+  font-size: 22rpx;
+  color: #bbb;
+  text-align: center;
+  margin-top: 40rpx;
+}
+
+/* Buttons */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 28rpx;
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 16rpx;
+  border: none;
+  box-shadow: 0 4rpx 12rpx rgba(231, 76, 60, 0.3);
+}
+.btn-primary:active {
+  opacity: 0.85;
+  transform: scale(0.98);
+}
+.btn-primary[disabled] {
+  background: #ccc;
+  box-shadow: none;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 16rpx 32rpx;
+  background: #fff;
+  color: #666;
+  font-size: 28rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 12rpx;
+  text-align: center;
+}
+
+.btn-small {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  background: #f0f0f0;
+  color: #666;
+  font-size: 24rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 32rpx;
+}
+.form-label {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+.form-label .required {
+  color: #e74c3c;
+  margin-left: 4rpx;
+}
+.form-input {
+  width: 100%;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  background: #fff;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  box-sizing: border-box;
+}
+.form-input:focus {
+  border-color: #4a90d9;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 8rpx 16rpx;
+  background: #e8f0fe;
+  color: #4a90d9;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  margin: 4rpx 8rpx 4rpx 0;
+}
+.tag.selected {
+  background: #4a90d9;
+  color: #fff;
+}
+
+/* Toast-like message */
+.toast-msg {
+  padding: 16rpx 32rpx;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+/* Empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+  color: #bbb;
+}
+.empty-state .icon {
+  font-size: 100rpx;
+  margin-bottom: 24rpx;
+}

@@ -1,0 +1,42 @@
+<view class="container home">
+  <!-- Logo & Title -->
+  <view class="hero">
+    <view class="hero-icon">🎯</view>
+    <text class="hero-title">起名神器</text>
+    <text class="hero-subtitle">传统文化 · 智能起名 · 为你甄选</text>
+  </view>
+
+  <!-- Features -->
+  <view class="features">
+    <view class="feature-item">
+      <text class="feature-icon">📝</text>
+      <text class="feature-text">填写基本信息</text>
+    </view>
+    <view class="feature-arrow">→</view>
+    <view class="feature-item">
+      <text class="feature-icon">🎬</text>
+      <text class="feature-text">观看小段广告</text>
+    </view>
+    <view class="feature-arrow">→</view>
+    <view class="feature-item">
+      <text class="feature-icon">✨</text>
+      <text class="feature-text">获取精美名字</text>
+    </view>
+  </view>
+
+  <!-- Main CTA Button -->
+  <button class="btn-primary start-btn" bindtap="onStartTap">
+    开始起名
+  </button>
+
+  <!-- My Favorites Entry -->
+  <view class="fav-entry" bindtap="onFavoritesTap" wx:if="{{hasFavorites}}">
+    <text>⭐ 我的收藏</text>
+    <text class="fav-count">{{favoriteCount}}个</text>
+  </view>
+
+  <!-- Disclaimer -->
+  <view class="disclaimer">
+    <text>⚠️ 免责声明：起名结果仅供娱乐参考，不构成任何建议</text>
+  </view>
+</view>

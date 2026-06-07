@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "起名结果",
+  "usingComponents": {
+    "name-card": "/components/name-card/name-card"
+  }
+}

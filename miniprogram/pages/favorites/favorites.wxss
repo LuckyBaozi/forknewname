@@ -1,0 +1,19 @@
+.fav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+  font-size: 26rpx;
+  color: #888;
+}
+
+.clear-all {
+  color: #e74c3c;
+  padding: 8rpx 16rpx;
+}
+
+.empty-hint {
+  font-size: 24rpx;
+  color: #ccc;
+  margin-top: 8rpx;
+}
