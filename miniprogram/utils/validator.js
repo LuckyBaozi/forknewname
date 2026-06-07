@@ -28,17 +28,6 @@ function validateGender(value) {
 }
 
 /**
- * 校验生肖
- */
-function validateZodiac(value) {
-  const zodiacs = ['鼠', '牛', '虎', '兔', '龙', '蛇', '马', '羊', '猴', '鸡', '狗', '猪'];
-  if (!value || !zodiacs.includes(value)) {
-    return { valid: false, message: '请选择生肖' };
-  }
-  return { valid: true, message: '' };
-}
-
-/**
  * 校验出生日期
  */
 function validateBirthDate(value) {
@@ -94,7 +83,6 @@ function validateForm(formData) {
   const fields = {
     surname: validateSurname(formData.surname),
     gender: validateGender(formData.gender),
-    zodiac: validateZodiac(formData.zodiac),
     birthDate: validateBirthDate(formData.birthDate),
     birthTime: validateBirthTime(formData.birthTime),
     nameLength: validateNameLength(formData.nameLength),
@@ -117,7 +105,6 @@ function validateForm(formData) {
 module.exports = {
   validateSurname,
   validateGender,
-  validateZodiac,
   validateBirthDate,
   validateBirthTime,
   validateNameLength,

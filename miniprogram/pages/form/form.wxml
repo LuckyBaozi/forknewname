@@ -50,24 +50,7 @@
     <text class="error-text" wx:if="{{errors.birthDate}}">{{errors.birthDate}}</text>
   </view>
 
-  <!-- 4. Zodiac -->
-  <view class="form-group">
-    <text class="form-label">生肖 <text class="required">*</text></text>
-    <picker
-      mode="selector"
-      range="{{zodiacs}}"
-      value="{{zodiacIndex}}"
-      bindchange="onZodiacChange"
-    >
-      <view class="picker-view {{errors.zodiac ? 'input-error' : ''}}">
-        <text class="{{zodiac ? '' : 'placeholder'}}">{{zodiac || '请选择生肖'}}</text>
-        <text class="picker-arrow">▼</text>
-      </view>
-    </picker>
-    <text class="error-text" wx:if="{{errors.zodiac}}">{{errors.zodiac}}</text>
-  </view>
-
-  <!-- 5. Birth Time -->
+  <!-- 4. Birth Time -->
   <view class="form-group">
     <text class="form-label">出生时间 <text class="required">*</text></text>
     <picker
@@ -85,7 +68,7 @@
     <text class="error-text" wx:if="{{errors.birthTime}}">{{errors.birthTime}}</text>
   </view>
 
-  <!-- 6. Name Length -->
+  <!-- 5. Name Length -->
   <view class="form-group">
     <text class="form-label">名字字数 <text class="required">*</text></text>
     <view class="radio-group">
@@ -102,7 +85,7 @@
     <text class="error-text" wx:if="{{errors.nameLength}}">{{errors.nameLength}}</text>
   </view>
 
-  <!-- 8. Styles -->
+  <!-- 6. Styles -->
   <view class="form-group">
     <text class="form-label">名字风格 <text class="required">*</text></text>
     <view class="tag-group">

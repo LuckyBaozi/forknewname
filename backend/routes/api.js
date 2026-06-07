@@ -14,13 +14,13 @@ router.post('/generateName', async (req, res) => {
     const {
       surname,
       gender,
-      zodiac,
       birthDate,
       birthTime,
       region,
       nameLength,
       styles
     } = req.body;
+    let zodiac = req.body.zodiac;
 
     // --- Server-side validation ---
     const errors = [];
@@ -31,8 +31,15 @@ router.post('/generateName', async (req, res) => {
     if (!['boy', 'girl'].includes(gender)) {
       errors.push({ field: 'gender', message: '请选择性别' });
     }
+    // Auto-compute zodiac from birthDate if not provided
+    if (!zodiac && birthDate) {
+      const year = parseInt(birthDate.split('-')[0]);
+      if (!isNaN(year)) {
+        zodiac = nameMatcher.ALL_ZODIACS[(year - 4) % 12];
+      }
+    }
     if (!nameMatcher.ALL_ZODIACS.includes(zodiac)) {
-      errors.push({ field: 'zodiac', message: '请选择生肖' });
+      errors.push({ field: 'zodiac', message: '无法确定生肖，请检查出生日期' });
     }
     if (!birthDate || isNaN(Date.parse(birthDate))) {
       errors.push({ field: 'birthDate', message: '请选择出生日期' });
