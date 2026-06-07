@@ -1,8 +1,12 @@
-/* 姓氏输入框 — 防止 maxlength=2 导致窄缩 */
+/* 姓氏输入框 — 防止 maxlength=2 导致窄缩和高度不足 */
 .surname-input {
   width: 100% !important;
   min-width: 100% !important;
   max-width: 100% !important;
+  height: 88rpx !important;
+  min-height: 88rpx !important;
+  line-height: 48rpx;
+  padding: 20rpx 24rpx !important;
   box-sizing: border-box;
 }
 
